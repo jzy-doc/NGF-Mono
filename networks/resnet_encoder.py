@@ -3,7 +3,6 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torchvision.models as models
-import torch.utils.model_zoo as model_zoo
 from torchvision import transforms
 
 
@@ -45,10 +44,15 @@ def resnet_multiimage_input(num_layers, pretrained=False, num_input_images=1):
     model = ResNetMultiImageInput(block_type, blocks, num_input_images=num_input_images)
 
     if pretrained:
-        loaded = model_zoo.load_url(models.resnet.model_urls['resnet{}'.format(num_layers)])
-        loaded['conv1.weight'] = torch.cat(
-            [loaded['conv1.weight']] * num_input_images, 1) / num_input_images
-        model.load_state_dict(loaded)
+        weights_enum = {
+            18: models.resnet.ResNet18_Weights.IMAGENET1K_V1,
+            50: models.resnet.ResNet50_Weights.IMAGENET1K_V1,
+        }[num_layers]
+        weights = weights_enum.get_state_dict()
+        # Expand conv1 for multi-image input by averaging pretrained weights
+        weights['conv1.weight'] = torch.cat(
+            [weights['conv1.weight']] * num_input_images, 1) / num_input_images
+        model.load_state_dict(weights)
     return model
 
 

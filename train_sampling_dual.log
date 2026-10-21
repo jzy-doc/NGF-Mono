@@ -1,0 +1,215 @@
+/home/jzy/.local/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+============================================================
+MONO Training
+============================================================
+  GPUs        : single GPU  (world_size=1)
+  Model name : lite-mono-sampling-dual
+  Batch size : 16 (per GPU, total=16)
+  Epochs     : 50
+  Geometric  : False
+  Log dir    : ./tmp/lite-mono-sampling-dual
+  Config     : None
+============================================================
+Training model named:
+   lite-mono-sampling-dual
+Models and tensorboard events files are saved to:
+   ./tmp/lite-mono-sampling-dual
+Training is using:
+   cuda
+Using split:
+   eigen_zhou
+There are 39810 training items and 4424 validation items
+
+[Epoch 0] Training
+epoch   0 | lr 0.000100 |lr_p 0.000100 | batch      0 | examples/s:   1.6 | loss: 0.24007 | time elapsed: 00h00m15s | time left: 00h00m00s
+epoch   0 | lr 0.000100 |lr_p 0.000100 | batch    250 | examples/s:  53.2 | loss: 0.21282 | time elapsed: 00h01m49s | time left: 15h04m14s
+epoch   0 | lr 0.000100 |lr_p 0.000100 | batch    500 | examples/s:  45.9 | loss: 0.19988 | time elapsed: 00h03m25s | time left: 14h07m18s
+epoch   0 | lr 0.000100 |lr_p 0.000100 | batch    750 | examples/s:  42.4 | loss: 0.19727 | time elapsed: 00h05m00s | time left: 13h45m06s
+epoch   0 | lr 0.000100 |lr_p 0.000100 | batch   1000 | examples/s:  43.8 | loss: 0.21709 | time elapsed: 00h06m36s | time left: 13h35m29s
+epoch   0 | lr 0.000100 |lr_p 0.000100 | batch   1250 | examples/s:  57.3 | loss: 0.21660 | time elapsed: 00h08m11s | time left: 13h27m16s
+epoch   0 | lr 0.000100 |lr_p 0.000100 | batch   1500 | examples/s:  36.0 | loss: 0.19483 | time elapsed: 00h09m47s | time left: 13h22m27s
+epoch   0 | lr 0.000100 |lr_p 0.000100 | batch   1750 | examples/s:  54.4 | loss: 0.22565 | time elapsed: 00h11m22s | time left: 13h17m15s
+epoch   0 | lr 0.000100 |lr_p 0.000100 | batch   2000 | examples/s:  43.6 | loss: 0.20198 | time elapsed: 00h12m58s | time left: 13h14m14s
+epoch   0 | lr 0.000100 |lr_p 0.000100 | batch   2250 | examples/s:  44.1 | loss: 0.19458 | time elapsed: 00h14m33s | time left: 13h10m45s
+[Epoch 1] Training
+epoch   1 | lr 0.000099 |lr_p 0.000099 | batch      0 | examples/s:  37.4 | loss: 0.20138 | time elapsed: 00h16m24s | time left: 13h23m42s
+epoch   1 | lr 0.000099 |lr_p 0.000099 | batch    250 | examples/s:  28.2 | loss: 0.19015 | time elapsed: 00h18m08s | time left: 13h25m55s
+epoch   1 | lr 0.000099 |lr_p 0.000099 | batch    500 | examples/s:  40.2 | loss: 0.20253 | time elapsed: 00h19m53s | time left: 13h28m24s
+epoch   1 | lr 0.000099 |lr_p 0.000099 | batch    750 | examples/s:  34.5 | loss: 0.19285 | time elapsed: 00h21m35s | time left: 13h28m12s
+epoch   1 | lr 0.000099 |lr_p 0.000099 | batch   1000 | examples/s:  35.0 | loss: 0.19045 | time elapsed: 00h23m09s | time left: 13h22m57s
+epoch   1 | lr 0.000099 |lr_p 0.000099 | batch   1250 | examples/s:  45.1 | loss: 0.21200 | time elapsed: 00h24m58s | time left: 13h26m06s
+epoch   1 | lr 0.000099 |lr_p 0.000099 | batch   1500 | examples/s:  61.6 | loss: 0.19543 | time elapsed: 00h26m35s | time left: 13h23m00s
+epoch   1 | lr 0.000099 |lr_p 0.000099 | batch   1512 | examples/s:  47.6 | loss: 0.20285 | time elapsed: 00h26m46s | time left: 13h25m53s
+epoch   1 | lr 0.000099 |lr_p 0.000099 | batch   1750 | examples/s:  45.7 | loss: 0.21611 | time elapsed: 00h28m18s | time left: 13h22m48s
+epoch   1 | lr 0.000099 |lr_p 0.000099 | batch   2000 | examples/s:  54.4 | loss: 0.16723 | time elapsed: 00h29m53s | time left: 13h18m50s
+epoch   1 | lr 0.000099 |lr_p 0.000099 | batch   2250 | examples/s:  46.7 | loss: 0.21030 | time elapsed: 00h31m31s | time left: 13h16m11s
+[Epoch 2] Training
+epoch   2 | lr 0.000098 |lr_p 0.000098 | batch      0 | examples/s:  26.2 | loss: 0.21429 | time elapsed: 00h33m05s | time left: 13h14m12s
+epoch   2 | lr 0.000098 |lr_p 0.000098 | batch    250 | examples/s:  50.4 | loss: 0.19374 | time elapsed: 00h34m43s | time left: 13h11m48s
+epoch   2 | lr 0.000098 |lr_p 0.000098 | batch    500 | examples/s:  54.5 | loss: 0.21520 | time elapsed: 00h36m19s | time left: 13h09m00s
+epoch   2 | lr 0.000098 |lr_p 0.000098 | batch    750 | examples/s:  43.7 | loss: 0.20083 | time elapsed: 00h37m56s | time left: 13h06m21s
+epoch   2 | lr 0.000098 |lr_p 0.000098 | batch   1000 | examples/s:  39.6 | loss: 0.20062 | time elapsed: 00h39m32s | time left: 13h03m30s
+epoch   2 | lr 0.000098 |lr_p 0.000098 | batch   1024 | examples/s:  44.9 | loss: 0.18930 | time elapsed: 00h39m47s | time left: 13h05m11s
+epoch   2 | lr 0.000098 |lr_p 0.000098 | batch   1250 | examples/s:  56.3 | loss: 0.19336 | time elapsed: 00h41m14s | time left: 13h02m50s
+epoch   2 | lr 0.000098 |lr_p 0.000098 | batch   1500 | examples/s:  50.1 | loss: 0.19834 | time elapsed: 00h42m54s | time left: 13h01m12s
+epoch   2 | lr 0.000098 |lr_p 0.000098 | batch   1750 | examples/s:  38.7 | loss: 0.20246 | time elapsed: 00h44m30s | time left: 12h58m33s
+epoch   2 | lr 0.000098 |lr_p 0.000098 | batch   2000 | examples/s:  53.0 | loss: 0.20381 | time elapsed: 00h46m05s | time left: 12h55m57s
+epoch   2 | lr 0.000098 |lr_p 0.000098 | batch   2250 | examples/s:  52.5 | loss: 0.20321 | time elapsed: 00h47m41s | time left: 12h53m13s
+[Epoch 3] Training
+epoch   3 | lr 0.000096 |lr_p 0.000096 | batch      0 | examples/s:  45.1 | loss: 0.19699 | time elapsed: 00h49m17s | time left: 12h52m10s
+epoch   3 | lr 0.000096 |lr_p 0.000096 | batch    250 | examples/s:  48.2 | loss: 0.20247 | time elapsed: 00h50m52s | time left: 12h49m41s
+epoch   3 | lr 0.000096 |lr_p 0.000096 | batch    500 | examples/s:  56.2 | loss: 0.16363 | time elapsed: 00h52m31s | time left: 12h47m58s
+epoch   3 | lr 0.000096 |lr_p 0.000096 | batch    536 | examples/s:  46.0 | loss: 0.20154 | time elapsed: 00h52m51s | time left: 12h49m10s
+epoch   3 | lr 0.000096 |lr_p 0.000096 | batch    750 | examples/s:  44.6 | loss: 0.20455 | time elapsed: 00h54m15s | time left: 12h47m25s
+epoch   3 | lr 0.000096 |lr_p 0.000096 | batch   1000 | examples/s:  43.6 | loss: 0.17711 | time elapsed: 00h55m52s | time left: 12h45m17s
+epoch   3 | lr 0.000096 |lr_p 0.000096 | batch   1250 | examples/s:  48.1 | loss: 0.19851 | time elapsed: 00h57m28s | time left: 12h43m03s
+epoch   3 | lr 0.000096 |lr_p 0.000096 | batch   1500 | examples/s:  51.3 | loss: 0.20077 | time elapsed: 00h59m05s | time left: 12h41m03s
+epoch   3 | lr 0.000096 |lr_p 0.000096 | batch   1750 | examples/s:  41.9 | loss: 0.18815 | time elapsed: 01h00m42s | time left: 12h38m52s
+epoch   3 | lr 0.000096 |lr_p 0.000096 | batch   2000 | examples/s:  39.5 | loss: 0.20018 | time elapsed: 01h02m18s | time left: 12h36m44s
+epoch   3 | lr 0.000096 |lr_p 0.000096 | batch   2250 | examples/s:  39.4 | loss: 0.18962 | time elapsed: 01h03m56s | time left: 12h34m49s
+[Epoch 4] Training
+epoch   4 | lr 0.000094 |lr_p 0.000094 | batch      0 | examples/s:  32.5 | loss: 0.19554 | time elapsed: 01h05m32s | time left: 12h33m40s
+epoch   4 | lr 0.000094 |lr_p 0.000094 | batch     48 | examples/s:  59.1 | loss: 0.19543 | time elapsed: 01h05m55s | time left: 12h34m10s
+epoch   4 | lr 0.000094 |lr_p 0.000094 | batch    250 | examples/s:  41.8 | loss: 0.18521 | time elapsed: 01h07m12s | time left: 12h32m18s
+epoch   4 | lr 0.000094 |lr_p 0.000094 | batch    500 | examples/s:  38.8 | loss: 0.20716 | time elapsed: 01h08m49s | time left: 12h30m21s
+epoch   4 | lr 0.000094 |lr_p 0.000094 | batch    750 | examples/s:  43.8 | loss: 0.20453 | time elapsed: 01h10m25s | time left: 12h28m10s
+epoch   4 | lr 0.000094 |lr_p 0.000094 | batch   1000 | examples/s:  46.3 | loss: 0.20121 | time elapsed: 01h12m14s | time left: 12h28m17s
+epoch   4 | lr 0.000094 |lr_p 0.000094 | batch   1250 | examples/s:  36.9 | loss: 0.21300 | time elapsed: 01h13m49s | time left: 12h26m01s
+epoch   4 | lr 0.000094 |lr_p 0.000094 | batch   1500 | examples/s:  47.2 | loss: 0.20145 | time elapsed: 01h15m40s | time left: 12h26m18s
+epoch   4 | lr 0.000094 |lr_p 0.000094 | batch   1750 | examples/s:  44.6 | loss: 0.20572 | time elapsed: 01h17m16s | time left: 12h24m11s
+epoch   4 | lr 0.000094 |lr_p 0.000094 | batch   2000 | examples/s:  41.1 | loss: 0.19574 | time elapsed: 01h18m51s | time left: 12h21m59s
+epoch   4 | lr 0.000094 |lr_p 0.000094 | batch   2048 | examples/s:  45.6 | loss: 0.18252 | time elapsed: 01h19m16s | time left: 12h22m30s
+epoch   4 | lr 0.000094 |lr_p 0.000094 | batch   2250 | examples/s:  46.7 | loss: 0.19508 | time elapsed: 01h20m34s | time left: 12h20m53s
+[Epoch 5] Training
+epoch   5 | lr 0.000091 |lr_p 0.000092 | batch      0 | examples/s:  32.0 | loss: 0.20144 | time elapsed: 01h22m10s | time left: 12h19m31s
+epoch   5 | lr 0.000091 |lr_p 0.000092 | batch    250 | examples/s:  45.9 | loss: 0.19871 | time elapsed: 01h23m46s | time left: 12h17m26s
+epoch   5 | lr 0.000091 |lr_p 0.000092 | batch    500 | examples/s:  41.2 | loss: 0.19533 | time elapsed: 01h25m20s | time left: 12h15m04s
+epoch   5 | lr 0.000091 |lr_p 0.000092 | batch    750 | examples/s:  45.2 | loss: 0.18043 | time elapsed: 01h26m55s | time left: 12h12m51s
+epoch   5 | lr 0.000091 |lr_p 0.000092 | batch   1000 | examples/s:  47.7 | loss: 0.19121 | time elapsed: 01h28m29s | time left: 12h10m33s
+epoch   5 | lr 0.000091 |lr_p 0.000092 | batch   1250 | examples/s:  45.0 | loss: 0.19212 | time elapsed: 01h30m02s | time left: 12h08m11s
+epoch   5 | lr 0.000091 |lr_p 0.000092 | batch   1500 | examples/s:  44.2 | loss: 0.18833 | time elapsed: 01h31m36s | time left: 12h05m51s
+epoch   5 | lr 0.000091 |lr_p 0.000092 | batch   1560 | examples/s:  36.9 | loss: 0.19633 | time elapsed: 01h32m03s | time left: 12h05m58s
+epoch   5 | lr 0.000091 |lr_p 0.000092 | batch   1750 | examples/s:  44.3 | loss: 0.20219 | time elapsed: 01h33m17s | time left: 12h04m31s
+epoch   5 | lr 0.000091 |lr_p 0.000092 | batch   2000 | examples/s:  43.0 | loss: 0.21281 | time elapsed: 01h34m52s | time left: 12h02m31s
+epoch   5 | lr 0.000091 |lr_p 0.000092 | batch   2250 | examples/s:  39.1 | loss: 0.18130 | time elapsed: 01h36m29s | time left: 12h00m40s
+[Epoch 6] Training
+epoch   6 | lr 0.000089 |lr_p 0.000089 | batch      0 | examples/s:  35.8 | loss: 0.19567 | time elapsed: 01h38m02s | time left: 11h58m56s
+epoch   6 | lr 0.000089 |lr_p 0.000089 | batch    250 | examples/s:  49.0 | loss: 0.18610 | time elapsed: 01h39m34s | time left: 11h56m32s
+epoch   6 | lr 0.000089 |lr_p 0.000089 | batch    500 | examples/s:  44.4 | loss: 0.18363 | time elapsed: 01h41m10s | time left: 11h54m40s
+epoch   6 | lr 0.000089 |lr_p 0.000089 | batch    750 | examples/s:  38.2 | loss: 0.16387 | time elapsed: 01h42m45s | time left: 11h52m38s
+epoch   6 | lr 0.000089 |lr_p 0.000089 | batch   1000 | examples/s:  44.7 | loss: 0.20335 | time elapsed: 01h44m19s | time left: 11h50m26s
+epoch   6 | lr 0.000089 |lr_p 0.000089 | batch   1072 | examples/s:  41.5 | loss: 0.17847 | time elapsed: 01h44m50s | time left: 11h50m17s
+epoch   6 | lr 0.000089 |lr_p 0.000089 | batch   1250 | examples/s:  47.1 | loss: 0.19025 | time elapsed: 01h46m00s | time left: 11h49m08s
+epoch   6 | lr 0.000089 |lr_p 0.000089 | batch   1500 | examples/s:  41.3 | loss: 0.20289 | time elapsed: 01h47m35s | time left: 11h47m08s
+epoch   6 | lr 0.000089 |lr_p 0.000089 | batch   1750 | examples/s:  53.3 | loss: 0.19681 | time elapsed: 01h49m11s | time left: 11h45m15s
+epoch   6 | lr 0.000089 |lr_p 0.000089 | batch   2000 | examples/s:  36.5 | loss: 0.19289 | time elapsed: 01h50m47s | time left: 11h43m25s
+epoch   6 | lr 0.000089 |lr_p 0.000089 | batch   2250 | examples/s:  47.1 | loss: 0.18295 | time elapsed: 01h52m24s | time left: 11h41m35s
+[Epoch 7] Training
+epoch   7 | lr 0.000085 |lr_p 0.000086 | batch      0 | examples/s:  30.2 | loss: 0.19626 | time elapsed: 01h53m57s | time left: 11h40m00s
+epoch   7 | lr 0.000085 |lr_p 0.000086 | batch    250 | examples/s:  52.9 | loss: 0.18939 | time elapsed: 01h55m33s | time left: 11h38m12s
+epoch   7 | lr 0.000085 |lr_p 0.000086 | batch    500 | examples/s:  54.0 | loss: 0.18941 | time elapsed: 01h57m06s | time left: 11h36m03s
+epoch   7 | lr 0.000085 |lr_p 0.000086 | batch    584 | examples/s:  40.1 | loss: 0.20265 | time elapsed: 01h57m42s | time left: 11h35m49s
+epoch   7 | lr 0.000085 |lr_p 0.000086 | batch    750 | examples/s:  45.9 | loss: 0.18573 | time elapsed: 01h58m49s | time left: 11h34m50s
+epoch   7 | lr 0.000085 |lr_p 0.000086 | batch   1000 | examples/s:  53.5 | loss: 0.21698 | time elapsed: 02h00m24s | time left: 11h32m56s
+epoch   7 | lr 0.000085 |lr_p 0.000086 | batch   1250 | examples/s:  44.8 | loss: 0.21430 | time elapsed: 02h01m59s | time left: 11h31m02s
+epoch   7 | lr 0.000085 |lr_p 0.000086 | batch   1500 | examples/s:  43.5 | loss: 0.20174 | time elapsed: 02h03m33s | time left: 11h29m00s
+epoch   7 | lr 0.000085 |lr_p 0.000086 | batch   1750 | examples/s:  45.6 | loss: 0.20011 | time elapsed: 02h05m09s | time left: 11h27m10s
+epoch   7 | lr 0.000085 |lr_p 0.000086 | batch   2000 | examples/s:  54.8 | loss: 0.17053 | time elapsed: 02h06m45s | time left: 11h25m25s
+epoch   7 | lr 0.000085 |lr_p 0.000086 | batch   2250 | examples/s:  39.7 | loss: 0.16311 | time elapsed: 02h08m22s | time left: 11h23m39s
+[Epoch 8] Training
+epoch   8 | lr 0.000082 |lr_p 0.000083 | batch      0 | examples/s:  46.5 | loss: 0.20781 | time elapsed: 02h09m56s | time left: 11h22m14s
+epoch   8 | lr 0.000082 |lr_p 0.000083 | batch     96 | examples/s:  46.9 | loss: 0.19509 | time elapsed: 02h10m36s | time left: 11h21m45s
+epoch   8 | lr 0.000082 |lr_p 0.000083 | batch   2096 | examples/s:  50.7 | loss: 0.18239 | time elapsed: 02h22m20s | time left: 11h02m30s
+[Epoch 9] Training
+epoch   9 | lr 0.000078 |lr_p 0.000079 | batch   1608 | examples/s:  43.7 | loss: 0.19668 | time elapsed: 02h34m23s | time left: 10h45m53s
+[Epoch 10] Training
+epoch  10 | lr 0.000073 |lr_p 0.000075 | batch   1120 | examples/s:  45.2 | loss: 0.19156 | time elapsed: 02h46m09s | time left: 10h28m52s
+[Epoch 11] Training
+epoch  11 | lr 0.000069 |lr_p 0.000071 | batch    632 | examples/s:  47.3 | loss: 0.21485 | time elapsed: 02h58m33s | time left: 10h14m46s
+[Epoch 12] Training
+epoch  12 | lr 0.000064 |lr_p 0.000066 | batch    144 | examples/s:  56.5 | loss: 0.16456 | time elapsed: 03h10m19s | time left: 09h58m54s
+epoch  12 | lr 0.000064 |lr_p 0.000066 | batch   2144 | examples/s:  51.2 | loss: 0.18372 | time elapsed: 03h22m06s | time left: 09h43m35s
+[Epoch 13] Training
+epoch  13 | lr 0.000060 |lr_p 0.000062 | batch   1656 | examples/s:  50.7 | loss: 0.17393 | time elapsed: 03h33m34s | time left: 09h27m52s
+[Epoch 14] Training
+epoch  14 | lr 0.000055 |lr_p 0.000057 | batch   1168 | examples/s:  27.2 | loss: 0.17711 | time elapsed: 03h46m07s | time left: 09h15m16s
+[Epoch 15] Training
+epoch  15 | lr 0.000050 |lr_p 0.000053 | batch    680 | examples/s:  47.1 | loss: 0.18925 | time elapsed: 03h58m03s | time left: 09h01m16s
+[Epoch 16] Training
+epoch  16 | lr 0.000045 |lr_p 0.000048 | batch    192 | examples/s:  48.5 | loss: 0.19247 | time elapsed: 04h09m50s | time left: 08h47m10s
+epoch  16 | lr 0.000045 |lr_p 0.000048 | batch   2192 | examples/s:  46.1 | loss: 0.18918 | time elapsed: 04h21m34s | time left: 08h33m10s
+[Epoch 17] Training
+epoch  17 | lr 0.000041 |lr_p 0.000044 | batch   1704 | examples/s:  30.5 | loss: 0.19342 | time elapsed: 04h35m04s | time left: 08h22m37s
+[Epoch 18] Training
+epoch  18 | lr 0.000036 |lr_p 0.000039 | batch   1216 | examples/s:  48.3 | loss: 0.19663 | time elapsed: 04h47m57s | time left: 08h10m47s
+[Epoch 19] Training
+epoch  19 | lr 0.000032 |lr_p 0.000035 | batch    728 | examples/s:  54.1 | loss: 0.18460 | time elapsed: 05h00m13s | time left: 07h57m51s
+[Epoch 20] Training
+epoch  20 | lr 0.000027 |lr_p 0.000031 | batch    240 | examples/s:  39.4 | loss: 0.18746 | time elapsed: 05h12m10s | time left: 07h44m31s
+epoch  20 | lr 0.000027 |lr_p 0.000031 | batch   2240 | examples/s:  44.1 | loss: 0.15092 | time elapsed: 05h25m52s | time left: 07h33m42s
+[Epoch 21] Training
+epoch  21 | lr 0.000023 |lr_p 0.000027 | batch   1752 | examples/s:  42.1 | loss: 0.18178 | time elapsed: 05h37m40s | time left: 07h20m13s
+[Epoch 22] Training
+epoch  22 | lr 0.000020 |lr_p 0.000024 | batch   1264 | examples/s:  56.0 | loss: 0.19869 | time elapsed: 05h49m20s | time left: 07h06m41s
+[Epoch 23] Training
+epoch  23 | lr 0.000016 |lr_p 0.000021 | batch    776 | examples/s:  54.3 | loss: 0.17565 | time elapsed: 06h01m14s | time left: 06h53m33s
+[Epoch 24] Training
+epoch  24 | lr 0.000014 |lr_p 0.000018 | batch    288 | examples/s:  44.5 | loss: 0.19616 | time elapsed: 06h12m58s | time left: 06h40m20s
+epoch  24 | lr 0.000014 |lr_p 0.000018 | batch   2288 | examples/s:  42.4 | loss: 0.17477 | time elapsed: 06h24m49s | time left: 06h27m18s
+[Epoch 25] Training
+epoch  25 | lr 0.000011 |lr_p 0.000016 | batch   1800 | examples/s:  40.2 | loss: 0.21018 | time elapsed: 06h36m42s | time left: 06h14m23s
+[Epoch 26] Training
+epoch  26 | lr 0.000009 |lr_p 0.000014 | batch   1312 | examples/s:  42.8 | loss: 0.19423 | time elapsed: 06h48m35s | time left: 06h01m32s
+[Epoch 27] Training
+epoch  27 | lr 0.000007 |lr_p 0.000012 | batch    824 | examples/s:  55.8 | loss: 0.20147 | time elapsed: 07h00m23s | time left: 05h48m40s
+[Epoch 28] Training
+epoch  28 | lr 0.000006 |lr_p 0.000011 | batch    336 | examples/s:  54.5 | loss: 0.18911 | time elapsed: 07h12m01s | time left: 05h35m44s
+epoch  28 | lr 0.000006 |lr_p 0.000011 | batch   2336 | examples/s:  45.2 | loss: 0.21030 | time elapsed: 07h23m49s | time left: 05h23m00s
+[Epoch 29] Training
+epoch  29 | lr 0.000005 |lr_p 0.000010 | batch   1848 | examples/s:  42.7 | loss: 0.17178 | time elapsed: 07h35m36s | time left: 05h10m18s
+[Epoch 30] Training
+epoch  30 | lr 0.000090 |lr_p 0.000090 | batch   1360 | examples/s:  39.7 | loss: 0.18535 | time elapsed: 07h47m22s | time left: 04h57m38s
+[Epoch 31] Training
+epoch  31 | lr 0.000090 |lr_p 0.000090 | batch    872 | examples/s:  43.5 | loss: 0.17412 | time elapsed: 07h59m10s | time left: 04h45m03s
+[Epoch 32] Training
+epoch  32 | lr 0.000089 |lr_p 0.000089 | batch    384 | examples/s:  55.0 | loss: 0.17849 | time elapsed: 08h10m51s | time left: 04h32m25s
+epoch  32 | lr 0.000089 |lr_p 0.000089 | batch   2384 | examples/s:  47.6 | loss: 0.20263 | time elapsed: 08h22m33s | time left: 04h19m51s
+[Epoch 33] Training
+epoch  33 | lr 0.000088 |lr_p 0.000088 | batch   1896 | examples/s:  42.3 | loss: 0.20141 | time elapsed: 08h34m32s | time left: 04h07m28s
+[Epoch 34] Training
+epoch  34 | lr 0.000087 |lr_p 0.000087 | batch   1408 | examples/s:  44.7 | loss: 0.19569 | time elapsed: 08h46m19s | time left: 03h55m00s
+[Epoch 35] Training
+epoch  35 | lr 0.000085 |lr_p 0.000085 | batch    920 | examples/s:  48.5 | loss: 0.18261 | time elapsed: 08h58m06s | time left: 03h42m34s
+[Epoch 36] Training
+epoch  36 | lr 0.000082 |lr_p 0.000083 | batch    432 | examples/s:  47.1 | loss: 0.17836 | time elapsed: 09h09m47s | time left: 03h30m08s
+epoch  36 | lr 0.000082 |lr_p 0.000083 | batch   2432 | examples/s:  47.6 | loss: 0.18027 | time elapsed: 09h21m36s | time left: 03h17m47s
+[Epoch 37] Training
+epoch  37 | lr 0.000080 |lr_p 0.000080 | batch   1944 | examples/s:  43.2 | loss: 0.19119 | time elapsed: 09h33m37s | time left: 03h05m30s
+[Epoch 38] Training
+epoch  38 | lr 0.000077 |lr_p 0.000078 | batch   1456 | examples/s:  54.1 | loss: 0.17199 | time elapsed: 09h45m35s | time left: 02h53m14s
+[Epoch 39] Training
+epoch  39 | lr 0.000074 |lr_p 0.000074 | batch    968 | examples/s:  51.5 | loss: 0.21137 | time elapsed: 09h57m32s | time left: 02h40m58s
+[Epoch 40] Training
+epoch  40 | lr 0.000070 |lr_p 0.000071 | batch    480 | examples/s:  52.7 | loss: 0.17897 | time elapsed: 10h09m16s | time left: 02h28m39s
+epoch  40 | lr 0.000070 |lr_p 0.000071 | batch   2480 | examples/s:  54.7 | loss: 0.18846 | time elapsed: 10h21m02s | time left: 02h16m23s
+[Epoch 41] Training
+epoch  41 | lr 0.000066 |lr_p 0.000068 | batch   1992 | examples/s:  54.3 | loss: 0.18992 | time elapsed: 10h32m52s | time left: 02h04m08s
+[Epoch 42] Training
+epoch  42 | lr 0.000062 |lr_p 0.000064 | batch   1504 | examples/s:  43.7 | loss: 0.18803 | time elapsed: 10h44m33s | time left: 01h51m53s
+[Epoch 43] Training
+epoch  43 | lr 0.000058 |lr_p 0.000060 | batch   1016 | examples/s:  46.0 | loss: 0.18538 | time elapsed: 10h56m21s | time left: 01h39m40s
+[Epoch 44] Training
+epoch  44 | lr 0.000054 |lr_p 0.000056 | batch    528 | examples/s:  55.5 | loss: 0.17824 | time elapsed: 11h08m15s | time left: 01h27m28s
+[Epoch 45] Training
+epoch  45 | lr 0.000050 |lr_p 0.000052 | batch     40 | examples/s:  55.4 | loss: 0.20784 | time elapsed: 11h19m54s | time left: 01h15m16s
+epoch  45 | lr 0.000050 |lr_p 0.000052 | batch   2040 | examples/s:  51.0 | loss: 0.16516 | time elapsed: 11h31m48s | time left: 01h03m06s
+[Epoch 46] Training
+epoch  46 | lr 0.000045 |lr_p 0.000048 | batch   1552 | examples/s:  53.8 | loss: 0.18624 | time elapsed: 11h43m43s | time left: 00h50m57s
+[Epoch 47] Training
+epoch  47 | lr 0.000041 |lr_p 0.000044 | batch   1064 | examples/s:  47.9 | loss: 0.18624 | time elapsed: 11h55m41s | time left: 00h38m49s
+[Epoch 48] Training
+epoch  48 | lr 0.000037 |lr_p 0.000040 | batch    576 | examples/s:  43.3 | loss: 0.18580 | time elapsed: 12h07m37s | time left: 00h26m40s
+[Epoch 49] Training
+epoch  49 | lr 0.000033 |lr_p 0.000036 | batch     88 | examples/s:  58.8 | loss: 0.18075 | time elapsed: 12h19m37s | time left: 00h14m33s
+epoch  49 | lr 0.000033 |lr_p 0.000036 | batch   2088 | examples/s:  34.9 | loss: 0.18529 | time elapsed: 12h31m17s | time left: 00h02m25s

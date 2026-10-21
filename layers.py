@@ -298,3 +298,119 @@ def compute_depth_errors(gt, pred):
     return abs_rel, sq_rel, rmse, rmse_log, a1, a2, a3
 
 
+# =============================================================================
+# Sampling Strategy Functions (深度与姿态联合采样策略)
+# =============================================================================
+
+def depth_sampling(disp, num_samples, noise_std, mode="scaled_disp", min_depth=0.1, max_depth=100.0):
+    """
+    在深度空间进行相对扰动采样
+    
+    Args:
+        disp: 原始 sigmoid 输出 [B, 1, H, W], 范围 [0, 1]
+        num_samples: 采样数量
+        noise_std: 噪声标准差（用于 log 或 ratio 空间）
+        mode: "scaled_disp" / "log_depth" / "disp"
+        min_depth: 最小深度 (默认 0.1m)
+        max_depth: 最大深度 (默认 100.0m)
+    
+    Returns:
+        disp_samples: [num_samples, B, 1, H, W] 的候选视差列表
+    """
+    # 确保 disp 是 [B, 1, H, W] 格式
+    if disp.dim() == 3:  # [B, H, W] -> [B, 1, H, W]
+        disp = disp.unsqueeze(1)
+    
+    B = disp.shape[0]
+    min_disp = 1.0 / max_depth   # 0.01
+    max_disp = 1.0 / min_depth   # 10.0
+    
+    if mode == "scaled_disp":
+        # 在 scaled_disp 上做相对扰动: scaled_disp * exp(eps)
+        scaled_disp = min_disp + (max_disp - min_disp) * disp  # [B, 1, H, W]
+        log_scaled = torch.log(scaled_disp + 1e-8)
+        
+        # 生成噪声并扩展维度 - [num_samples, B, 1, 1, 1]
+        noise = torch.randn(num_samples, B, 1, 1, 1, device=disp.device, dtype=disp.dtype) * noise_std
+        log_scaled_expanded = log_scaled.unsqueeze(0).expand(num_samples, -1, -1, -1, -1)
+        log_scaled_samples = log_scaled_expanded + noise
+        scaled_disp_samples = torch.exp(log_scaled_samples)
+        disp_samples = (scaled_disp_samples - min_disp) / (max_disp - min_disp)
+        disp_samples = torch.clamp(disp_samples, 0, 1)
+        
+    elif mode == "log_depth":
+        # 在 log depth 上做加性扰动
+        scaled_disp = min_disp + (max_disp - min_disp) * disp
+        depth = 1.0 / (scaled_disp + 1e-8)
+        log_depth = torch.log(depth + 1e-8)
+        
+        noise = torch.randn(num_samples, B, 1, 1, 1, device=disp.device, dtype=disp.dtype) * noise_std
+        log_depth_expanded = log_depth.unsqueeze(0).expand(num_samples, -1, -1, -1, -1)
+        log_depth_samples = log_depth_expanded + noise
+        depth_samples = torch.exp(log_depth_samples)
+        scaled_disp_samples = 1.0 / (depth_samples + 1e-8)
+        disp_samples = (scaled_disp_samples - min_disp) / (max_disp - min_disp)
+        disp_samples = torch.clamp(disp_samples, 0, 1)
+        
+    else:  # "disp"
+        # 直接在 disp 上做相对扰动: disp * exp(eps)
+        log_disp = torch.log(disp + 1e-8)
+        noise = torch.randn(num_samples, B, 1, 1, 1, device=disp.device, dtype=disp.dtype) * noise_std
+        log_disp_expanded = log_disp.unsqueeze(0).expand(num_samples, -1, -1, -1, -1)
+        log_disp_samples = log_disp_expanded + noise
+        disp_samples = torch.exp(log_disp_samples)
+        disp_samples = torch.clamp(disp_samples, 0, 1)
+    
+    return disp_samples  # [N, B, 1, H, W]
+
+
+def pose_sampling(axisangle, translation, num_samples, rot_noise, trans_noise_ratio):
+    """
+    对姿态进行采样
+    
+    Args:
+        axisangle: [B, N, 1, 3] 原始旋转输出
+        translation: [B, N, 1, 3] 原始平移输出
+        num_samples: 采样数量
+        rot_noise: 旋转噪声 (rad)，加性高斯噪声在弧度空间
+        trans_noise_ratio: 平移相对扰动比例
+    
+    Returns:
+        axisangle_samples: [num_samples, B, N, 1, 3]
+        translation_samples: [num_samples, B, N, 1, 3]
+    """
+    B = axisangle.shape[0]
+    N = axisangle.shape[1]
+    
+    # 旋转：加性高斯噪声（弧度空间）
+    rot_eps = torch.randn(num_samples, 1, 1, 1, 3, device=axisangle.device, dtype=axisangle.dtype) * rot_noise
+    axisangle_expanded = axisangle.unsqueeze(0).expand(num_samples, -1, -1, -1, -1)
+    axisangle_samples = axisangle_expanded + rot_eps
+    
+    # 平移：相对扰动 t * (1 + eps)
+    trans_eps = torch.randn(num_samples, 1, 1, 1, 3, device=translation.device, dtype=translation.dtype) * trans_noise_ratio
+    trans_expanded = translation.unsqueeze(0).expand(num_samples, -1, -1, -1, -1)
+    translation_samples = trans_expanded * (1.0 + trans_eps)
+    
+    return axisangle_samples, translation_samples
+
+
+def pose_constraint_loss(axisangle_best, axisangle_hat, translation_best, translation_hat):
+    """
+    在 pose vector 空间计算一致性约束（不在 4x4 矩阵上做差）
+    
+    Args:
+        axisangle_best: [B, N, 1, 3] 最优采样旋转
+        axisangle_hat: [B, N, 1, 3] 预测旋转
+        translation_best: [B, N, 1, 3] 最优采样平移
+        translation_hat: [B, N, 1, 3] 预测平移
+    
+    Returns:
+        rot_loss: ||axisangle_best - axisangle_hat||_1
+        trans_loss: ||translation_best - translation_hat||_1
+    """
+    rot_loss = torch.abs(axisangle_best - axisangle_hat).mean()
+    trans_loss = torch.abs(translation_best - translation_hat).mean()
+    return rot_loss, trans_loss
+
+

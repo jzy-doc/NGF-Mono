@@ -1,0 +1,69 @@
+# MONO_NICE_SLAM Depth Fine-tuning Config
+# Training on 4 GPUs (RTX 3090 x4)
+# Data: KITTI raw (same as geo_combo training)
+# Model: lite-mono + geometric consistency loss
+# Output: for use with mono_nice_slam
+#
+# Usage:
+#   torchrun --nproc_per_node=4 --master_port=29500 train.py --config configs/replica_train.yaml
+# Or (single GPU):
+#   python train.py --config configs/replica_train.yaml
+# Or (no config, CLI args only):
+#   torchrun --nproc_per_node=4 --master_port=29500 train.py \
+#       --data_path /data3/jzy/vision/monodepth2/kitti_data \
+#       --model_name mytrain --num_epochs 30 --batch_size 12 --png
+
+# =============================================================================
+# DATA
+# =============================================================================
+data_path: /data3/jzy/vision/monodepth2/kitti_data
+split: eigen_zhou
+png: true
+
+# =============================================================================
+# MODEL
+# =============================================================================
+model: lite-mono
+depth_encoder_type: lite_mono
+height: 192
+width: 640
+scales: [0, 1, 2]
+min_depth: 0.1
+max_depth: 100.0
+drop_path: 0.2
+weight_decay: 0.01
+use_stereo: false
+frame_ids: [0, -1, 1]
+
+# =============================================================================
+# OPTIMIZATION
+# =============================================================================
+batch_size: 12          # per GPU, total = 12 * 4 = 48
+num_epochs: 30
+lr: [0.0001, 0.000005, 31, 0.0001, 0.00001, 31]   # init, min, T_0, pose_init, pose_min, pose_T_0
+scheduler_step_size: 15
+weight_decay: 0.01
+
+# =============================================================================
+# LOSS
+# =============================================================================
+use_geometric_loss: true
+geometric_loss_weight: 1.0
+disparity_smoothness: 0.001
+
+# =============================================================================
+# TRAINING OPTIONS
+# =============================================================================
+weights_init: pretrained   # use pretrained encoder from geo_combo
+mypretrain: ./tmp/geo_combo/models/weights_5/encoder.pth
+num_workers: 8
+profile: true
+log_frequency: 250
+save_frequency: 1
+no_eval: false
+
+# =============================================================================
+# OUTPUT
+# =============================================================================
+log_dir: ./tmp
+model_name: geo_combo_ft4

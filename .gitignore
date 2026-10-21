@@ -128,3 +128,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Keep only first-level experiment directories under tmp
+/tmp/*
+!/tmp/*/
+/tmp/*/*
+!/tmp/*/.gitkeep
